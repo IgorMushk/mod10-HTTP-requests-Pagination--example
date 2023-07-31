@@ -1,0 +1,2 @@
+var BASE_URL="https://the-one-api.dev/v2/",END_POINT="character",KEY="YZ3dzviq1QC3f0oHGhfv";function getCharacter(){var t=new URLSearchParams({limit:30,page:1}),e={method:"GET",headers:{Authorization:"Bearer ".concat(KEY)}};fetch("".concat(BASE_URL).concat(END_POINT,"?").concat(t),e).then((function(t){return console.log(t)}))}getCharacter();var target=document.querySelector(".js-guard"),options={root:null,rootMargin:"200px",threshold:1};
+//# sourceMappingURL=the-one-api.1cbb67f7.js.map
