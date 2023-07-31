@@ -1,0 +1,9 @@
+li {
+  height: 650px;
+}
+
+.js-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
