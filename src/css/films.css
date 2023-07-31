@@ -2,8 +2,36 @@ li {
   height: 650px;
 }
 
+/* img {
+  display: block;
+} */
+
+ul {
+  list-style: none;
+  /* margin: 0;
+  padding: 0; */
+}
+
+/* body {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
 .js-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.card-films-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 15px auto;
+}
+
+button {
+  margin: 0 auto;
+  display: block;
 }
