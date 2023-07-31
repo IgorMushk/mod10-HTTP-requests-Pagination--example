@@ -2,6 +2,23 @@
 // function callback(evt){
 // console.log(evt);
 // }
+
+// +
+const target = document.querySelector('.js-guard');
+
+// - https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#creating_an_intersection_observer
+let options = {
+  root: null,
+  rootMargin: '200px',
+  threshold: 1.0,
+};
+
+let observer = new IntersectionObserver(callback, options);
+function callback(evt) {
+  console.log(evt);
+}
+// +
+
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const ENDPOINT = 'trending/movie/day';
 //const API_KEY = '345007f9ab440e5b86cef51be6397df1';
@@ -59,7 +76,7 @@ function getTrending(page = 1) {
 getTrending()
   .then(data => {
     list.insertAdjacentHTML('beforeend', createMarkup(data.results));
-    //observer.observe(target);
+    observer.observe(target); // +
     // Если текущая страница и общее количество страниц не совпадве отоброжаем кнопку
     if (data.page !== data.total_pages) {
       loadMore.hidden = false;
@@ -78,12 +95,23 @@ function createMarkup(arr) {
     .join('');
 }
 
-// // ПЕРЕРВА ДО 22.00
+// //
+let counter = 0;
+document.addEventListener('scroll', onScroll);
 
-// let counter = 0;
-// document.addEventListener("scroll", onScroll);
+// // - https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#creating_an_intersection_observer
+// let options = {
+//   root: null,
+//   rootMargin: '200px',
+//   threshold: 1.0,
+// };
 
-// function onScroll() {
-//   counter += 1;
-//   console.log(counter);
-// }
+// let observer = new IntersectionObserver(callback, options);
+// //
+
+function onScroll() {
+  counter += 1;
+  console.log(counter);
+}
+
+//const target = document.querySelector('.js-guard');
