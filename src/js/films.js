@@ -72,7 +72,7 @@ function getTrending(page = 1) {
   );
 }
 
-// Первый показ загруженной страницы
+// Первый запрос на показ первой загруженной страницы
 getTrending()
   .then(data => {
     list.insertAdjacentHTML('beforeend', createMarkup(data.results));
