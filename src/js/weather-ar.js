@@ -18,7 +18,9 @@ function onSearch(evt) {
 
 function getWeather(city, days) {
   const BASE_URL = 'https://api.weatherapi.com/v1';
-  const API_KEY = 'ce2cb9b2a3da414bb5b172546231704';
+  //const API_KEY = 'ce2cb9b2a3da414bb5b172546231704';
+  // My https://www.weatherapi.com/my/
+  const API_KEY = 'c57ad512cdd648c8a46170845230908';
   const params = new URLSearchParams({
     key: API_KEY,
     q: city,
