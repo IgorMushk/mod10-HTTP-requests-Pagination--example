@@ -1,12 +1,15 @@
 'use strict';
 
 export class UnsplashAPI {
-  #API_KEY = 'LxvKVGJqiSe6NcEVZOaLXC-f2JIIWZaq_o0WrF8mwJc';
+  //#API_KEY = 'LxvKVGJqiSe6NcEVZOaLXC-f2JIIWZaq_o0WrF8mwJc';
+  // My Access Key -  https://unsplash.com/oauth/applications/486726
+  #API_KEY = 'L3IKHQI2AjVSJ-6WGYWweMH_kKk6loLeYXOjvicsLAk';
   #BASE_URL = 'https://api.unsplash.com';
 
+  // Фиксированные параметры поиска
   baseSearchParams = {
     per_page: 12,
-    color: 'black_and_white',
+    //color: 'black_and_white',
     client_id: this.#API_KEY,
   };
 
@@ -16,6 +19,11 @@ export class UnsplashAPI {
 
   fetchPhotos() {
     const searchParams = new URLSearchParams({
+      // Эти параметры сделаем как фикисованные
+      //per_page: 12,
+      //color: 'black_and_white',
+      //client_id: this.#API_KEY,
+      // а тут будем распыливать базовые параметры
       ...this.baseSearchParams,
       query: this.query,
       page: this.page,

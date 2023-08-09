@@ -9,9 +9,18 @@ const loadMoreBtnEl = document.querySelector('.js-load-more');
 
 const unsplashApiInstance = new UnsplashAPI();
 
+//console.log(unsplashApiInstance);
+
 const handleSearchFormSubmit = event => {
   event.preventDefault();
 
+  console.log(event.target.elements);
+  //console.dir(event.target.elements.user - search - query.value);
+  console.log(event.currentTarget.elements);
+  //console.dir(.elements.user - search - query.value);
+  console.log(event.target.firstElementChild.value);
+
+  console.log(event);
   const searchQuery = event.target.firstElementChild.value.trim();
 
   if (!searchQuery) {
@@ -23,6 +32,7 @@ const handleSearchFormSubmit = event => {
   unsplashApiInstance
     .fetchPhotos()
     .then(data => {
+      console.log(data);
       galleryListEl.innerHTML = createGalleryCards(data.results);
 
       if (data.total_pages <= 1) {
