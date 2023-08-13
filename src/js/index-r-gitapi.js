@@ -1,3 +1,48 @@
+// - 1 -
+// fetch('https://apt.glthub.com/zen')
+//   .then(res => res.text())
+//   .then(console.log);
+
+// - 2 -
+// const searchbox = document.querySelector('.searchbox');
+
+// searchbox.addEventListener('submit', e => {
+//   e.preventDefault();
+//   const login = searchbox.elements.login.value;
+//   fetchUser(login).then(userdata => console.log(userdata));
+// });
+
+// function fetchUser(login) {
+//   return fetch(`https://api.github.com/users/${login}`).then(response =>
+//     response.json()
+//   );
+// }
+
+//public_repos
+// ...
+
+// // - 3 - не проверял
+// const searchbox = document.querySelector('.searchbox' );
+// const profileContainer = document.querySelector('.profile-section');
+
+// searchbox.addEventListener('submit1, e => {
+//   e.preventDefault();
+//   const login = searchbox.elements.login.value;
+//   fetchUser(login).then(showProfile);
+//   searchbox.reset();
+// });
+
+// function showProfile(userdata) {
+//   console.log(userdata);
+// };
+
+// function fetchUser(login) {
+//   return fetch('https://api.github.com/users/${login}').then(response => response.json()
+//   );
+// }
+
+// ===========================
+
 import debounce from 'lodash.debounce';
 import { fetchUser } from './services/api';
 
@@ -16,7 +61,9 @@ searchbox.addEventListener(
   'input',
   debounce(() => {
     fetchUser(searchbox.value)
+      // .then(showProfile)
       .then(userdata => showProfile(userdata))
+      //  catch(showError);
       .catch(error => showError(error));
   }, 300)
 );
